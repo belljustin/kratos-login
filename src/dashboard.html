@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <meta name="author" content="Justin Bell">
+
+        <link rel="stylesheet" href="css/styles.css?v=1.0">
+    </head>
+
+    <body>
+        <h1>Dashboard</h1>
+        <a href='/.ory/kratos/public/self-service/browser/flows/logout'>logout</a>
+        <br/>
+        Hello, <span id="email-span"></span>
+
+        <script src="js/scripts.js"></script>
+        <script>
+            whoami()
+                .then(identity => {
+                    const text = identity.name + "<br/>" + identity.email + " " + (identity.verified ? "verified" : "unverified");
+                    document.getElementById('email-span').innerHTML = text;
+                }).catch((error) => window.location = '/.ory/kratos/public/self-service/browser/flows/login');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Register</title>
+        <meta name="author" content="Justin Bell">
+
+        <link rel="stylesheet" href="css/styles.css?v=1.0">
+    </head>
+
+    <body>
+        <h1>Register</h1>
+        <a href='/.ory/kratos/public/self-service/browser/flows/login'>login</a>
+        <div id='register-div'></div>
+
+        <script src="js/scripts.js"></script>
+        <script>
+            getBrowserBasedRegistrationUserFlow()
+                .then(flow => {
+                    const form = createForm(flow);
+                    const div = document.getElementById('register-div');
+                    div.appendChild(form);
+                });
+        </script>
+    </body>
+</html>
